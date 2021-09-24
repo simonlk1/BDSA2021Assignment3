@@ -1,11 +1,11 @@
 using System;
 using System.Collections.Generic;
-using System.IO;
-using CsvHelper;
-using System.Linq;
 using System.Globalization;
+using System.IO;
+using System.Linq;
+using CsvHelper;
 
-namespace BDSA2020.Assignment02
+namespace Assignment3
 {
     public class Wizard
     {

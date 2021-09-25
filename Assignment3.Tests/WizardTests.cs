@@ -39,13 +39,27 @@ namespace Assignment3.Tests
         }
 
         [Fact]
-        public void WizardsInventedByRowling_Return_Harry_Potter_Ron_Weasley_Albus_Dumbledore_Draco_Malfoy()
+        public void WizardsInventedByRowlingUsingLinq_Return_Harry_Potter_Ron_Weasley_Albus_Dumbledore_Draco_Malfoy()
         {
             // arrange
             var wizards = Wizard.Wizards.Value;
             
             // act
-            var actual = Queries.GetWizardsInventedByAuthor("Rowling",wizards);
+            var actual = Queries.GetWizardsInventedByAuthorLinq("Rowling",wizards);
+
+            // assert
+            var expected = new []{"Harry Potter","Ron Weasley","Albus Dumbledore","Draco Malfoy"};
+            Assert.Equal(expected,actual);
+        }
+        
+        [Fact]
+        public void WizardsInventedByRowlingUsingExtensionMethod_Return_Harry_Potter_Ron_Weasley_Albus_Dumbledore_Draco_Malfoy()
+        {
+            // arrange
+            var wizards = Wizard.Wizards.Value;
+            
+            // act
+            var actual = Queries.GetWizardsInventedByAuthorExtensionMethod("Rowling",wizards);
 
             // assert
             var expected = new []{"Harry Potter","Ron Weasley","Albus Dumbledore","Draco Malfoy"};

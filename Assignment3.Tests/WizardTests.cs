@@ -41,11 +41,8 @@ namespace Assignment3.Tests
         [Fact]
         public void WizardsInventedByRowlingUsingLinq_Return_Harry_Potter_Ron_Weasley_Albus_Dumbledore_Draco_Malfoy()
         {
-            // arrange
-            var wizards = Wizard.Wizards.Value;
-            
             // act
-            var actual = Queries.GetWizardsInventedByAuthorLinq("Rowling",wizards);
+            var actual = Queries.GetWizardsInventedByRowlingLinq();
 
             // assert
             var expected = new []{"Harry Potter","Ron Weasley","Albus Dumbledore","Draco Malfoy"};
@@ -55,11 +52,8 @@ namespace Assignment3.Tests
         [Fact]
         public void WizardsInventedByRowlingUsingExtensionMethod_Return_Harry_Potter_Ron_Weasley_Albus_Dumbledore_Draco_Malfoy()
         {
-            // arrange
-            var wizards = Wizard.Wizards.Value;
-            
             // act
-            var actual = Queries.GetWizardsInventedByAuthorExtensionMethod("Rowling",wizards);
+            var actual = Queries.GetWizardsInventedByRowlingExtensionMethod();
 
             // assert
             var expected = new []{"Harry Potter","Ron Weasley","Albus Dumbledore","Draco Malfoy"};
@@ -69,11 +63,8 @@ namespace Assignment3.Tests
         [Fact]
         public void FirstYearSithLordWasIntroduced_Return_1977_UsingLinq()
         {
-            // arrange
-            var wizards = Wizard.Wizards.Value;
-            
             // act
-            var actual = Queries.GetYearTheFirstSithLordWasIntroducedLinq(wizards);
+            var actual = Queries.GetYearTheFirstSithLordWasIntroducedLinq();
 
             // assert
             var expected = 1977;
@@ -83,14 +74,33 @@ namespace Assignment3.Tests
         [Fact]
         public void FirstYearSithLordWasIntroduced_Return_1977_UsingExtensionMethod()
         {
-            // arrange
-            var wizards = Wizard.Wizards.Value;
-            
             // act
-            var actual = Queries.GetYearTheFirstSithLordWasIntroducedExtensionMethod(wizards);
+            var actual = Queries.GetYearTheFirstSithLordWasIntroducedExtensionMethod();
 
             // assert
             var expected = 1977;
+            Assert.Equal(expected,actual);
+        }
+        
+        [Fact]
+        public void GetUniqueListOfWizardsFromHarryPotterExtensionMethod_Return_4_wizards_as_tuple()
+        {
+            // act
+            var actual = Queries.GetUniqueListOfWizardsFromHarryPotterExtensionMethod();
+
+            // assert
+            var expected = new (string,int?)[]{("Harry Potter",2001),("Ron Weasley",2001),("Albus Dumbledore",2002),("Draco Malfoy",2002)};
+            Assert.Equal(expected,actual);
+        }
+        
+        [Fact]
+        public void GetUniqueListOfWizardsFromHarryPotterLinq_Return_4_wizards_as_tuple()
+        {
+            // act
+            var actual = Queries.GetUniqueListOfWizardsFromHarryPotterLinq();
+
+            // assert
+            var expected = new (string,int?)[]{("Harry Potter",2001),("Ron Weasley",2001),("Albus Dumbledore",2002),("Draco Malfoy",2002)};
             Assert.Equal(expected,actual);
         }
     }

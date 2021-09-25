@@ -49,5 +49,23 @@ namespace Assignment3
             return filteredWizards;
         }
         
+        public static IEnumerable<string> GetGroupedByCreatorInReverseOrderByCreatorNameAndThenWizardNameExtensionMethod()
+        {
+            var wizards = Wizard.Wizards.Value;
+            var filteredWizards = wizards.GroupBy(w => (w.Creator, w.Name)).OrderBy(w => w.Key.Creator)
+                .ThenBy(w => w.Key.Name).Reverse().Select(w => w.Key.Name);
+            return filteredWizards;
+        }
+        
+        public static IEnumerable<string> GetGroupedByCreatorInReverseOrderByCreatorNameAndThenWizardNameLinq()
+        {
+            var wizards = Wizard.Wizards.Value;
+            var filteredWizards = (from w in wizards
+                group w by (w.Creator, w.Name)
+                into newGroup
+                orderby (newGroup.Key.Creator, newGroup.Key.Name)
+                select newGroup.Key.Name).Reverse();
+            return filteredWizards;
+        }
     }
 }

@@ -103,6 +103,57 @@ namespace Assignment3.Tests
             var expected = new (string,int?)[]{("Harry Potter",2001),("Ron Weasley",2001),("Albus Dumbledore",2002),("Draco Malfoy",2002)};
             Assert.Equal(expected,actual);
         }
+        
+        [Fact]
+        public void GroupedByCreatorInReverseOrderByCreatorNameAndThenWizardNameExtensionMethod()
+        {
+            // act
+            var actual = Queries.GetGroupedByCreatorInReverseOrderByCreatorNameAndThenWizardNameExtensionMethod();
+
+            // assert
+            var expected = new[]
+            {
+                "Merlin",
+                "Doctor Strange",
+                "Sauron",
+                "Sam",
+                "Frodo",
+                "Ron Weasley",
+                "Harry Potter",
+                "Draco Malfoy",
+                "Albus Dumbledore",
+                "Darth Vader",
+                "Darth Sidious",
+                "Darth Maul"
+            };
+            
+            Assert.Equal(expected,actual);
+        }
+        [Fact]
+        public void GroupedByCreatorInReverseOrderByCreatorNameAndThenWizardNameLinq()
+        {
+            // act
+            var actual = Queries.GetGroupedByCreatorInReverseOrderByCreatorNameAndThenWizardNameLinq();
+
+            // assert
+            var expected = new[]
+            {
+                "Merlin",
+                "Doctor Strange",
+                "Sauron",
+                "Sam",
+                "Frodo",
+                "Ron Weasley",
+                "Harry Potter",
+                "Draco Malfoy",
+                "Albus Dumbledore",
+                "Darth Vader",
+                "Darth Sidious",
+                "Darth Maul"
+            };
+            
+            Assert.Equal(expected,actual);
+        }
     }
 }
 

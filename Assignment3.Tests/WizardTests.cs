@@ -65,6 +65,34 @@ namespace Assignment3.Tests
             var expected = new []{"Harry Potter","Ron Weasley","Albus Dumbledore","Draco Malfoy"};
             Assert.Equal(expected,actual);
         }
+
+        [Fact]
+        public void FirstYearSithLordWasIntroduced_Return_1977_UsingLinq()
+        {
+            // arrange
+            var wizards = Wizard.Wizards.Value;
+            
+            // act
+            var actual = Queries.GetYearTheFirstSithLordWasIntroducedLinq(wizards);
+
+            // assert
+            var expected = 1977;
+            Assert.Equal(expected,actual);
+        }
+        
+        [Fact]
+        public void FirstYearSithLordWasIntroduced_Return_1977_UsingExtensionMethod()
+        {
+            // arrange
+            var wizards = Wizard.Wizards.Value;
+            
+            // act
+            var actual = Queries.GetYearTheFirstSithLordWasIntroducedExtensionMethod(wizards);
+
+            // assert
+            var expected = 1977;
+            Assert.Equal(expected,actual);
+        }
     }
 }
 
